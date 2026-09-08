@@ -1,133 +1,416 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WOMB - Privacy Policy</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#050506">
+  <meta name="description" content="Politique de confidentialité de Womb, guide du sommeil de bébé.">
+  <title>Womb | Politique de confidentialité</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      color-scheme: dark;
+      --background: #050506;
+      --surface: #0c0c0d;
+      --surface-raised: #111113;
+      --cream: #f1ecd8;
+      --cream-strong: #f5efdc;
+      --muted: #a8a293;
+      --quiet: #807c70;
+      --blue: #a0c3f0;
+      --pink: #f2afc4;
+      --mint: #afdcb9;
+      --border: rgba(241, 236, 216, 0.12);
+      --border-strong: rgba(241, 236, 216, 0.24);
+      --shadow: 0 26px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #000;
-      color: #ccc;
-      padding: 24px;
-      max-width: 680px;
-      margin: 0 auto;
-      line-height: 1.7;
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(160, 195, 240, 0.10), transparent 31rem),
+        radial-gradient(circle at 92% 16%, rgba(242, 175, 196, 0.08), transparent 28rem),
+        var(--background);
+      color: var(--cream);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
     }
-    h1 {
-      color: #fff;
-      font-size: 24px;
-      font-weight: 300;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+
+    a { color: var(--blue); text-underline-offset: 0.2em; }
+    a:hover { color: var(--cream-strong); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+
+    .shell { width: min(100% - 32px, 760px); margin: 0 auto; padding: 28px 0 72px; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 58px;
     }
-    .date { color: #666; font-size: 13px; margin-bottom: 32px; }
-    h2 {
-      color: #FF9B8E;
-      font-size: 16px;
-      font-weight: 500;
-      margin-top: 28px;
-      margin-bottom: 10px;
+
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--cream); text-decoration: none; }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border-strong);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(245, 239, 220, 0.16), transparent 48%), var(--surface);
+      box-shadow: inset 0 0 18px rgba(160, 195, 240, 0.08);
     }
-    p { margin-bottom: 14px; font-size: 14px; }
-    ul { margin-bottom: 14px; padding-left: 20px; }
-    li { font-size: 14px; margin-bottom: 6px; }
-    a { color: #FF9B8E; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #222;
-      color: #555;
+    .brand-name { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    .language-switch {
+      display: inline-flex;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(12, 12, 13, 0.84);
+    }
+    .language-switch button {
+      min-width: 44px;
+      min-height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
       font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .language-switch button[aria-pressed="true"] { background: var(--cream); color: #1a1a18; }
+
+    .eyebrow { color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+    h1 { max-width: 650px; margin: 13px 0 18px; font-size: clamp(40px, 8vw, 68px); line-height: 1.04; letter-spacing: -0.035em; }
+    .lede { max-width: 660px; margin: 0; color: var(--muted); font-size: 17px; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 36px 0 46px;
+    }
+    .summary article {
+      min-height: 126px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(23, 23, 24, 0.92), rgba(10, 10, 11, 0.94));
+      box-shadow: var(--shadow);
+    }
+    .summary .dot { display: block; width: 8px; height: 8px; margin-bottom: 19px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 16px rgba(160, 195, 240, 0.45); }
+    .summary article:nth-child(2) .dot { background: var(--pink); box-shadow: 0 0 16px rgba(242, 175, 196, 0.40); }
+    .summary article:nth-child(3) .dot { background: var(--mint); box-shadow: 0 0 16px rgba(175, 220, 185, 0.38); }
+    .summary strong { display: block; margin-bottom: 5px; color: var(--cream-strong); font-size: 14px; }
+    .summary p { margin: 0; color: var(--quiet); font-size: 12px; line-height: 1.5; }
+
+    .legal-section { padding: 30px 0; border-top: 1px solid var(--border); }
+    .legal-section h2 { margin: 0 0 15px; color: var(--cream-strong); font-size: 25px; line-height: 1.2; }
+    p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--cream-strong); font-weight: 650; }
+    ul { margin: 10px 0 0; padding-left: 21px; color: var(--muted); }
+    li { margin: 8px 0; padding-left: 4px; }
+    .notice {
+      margin: 4px 0 20px;
+      padding: 18px 20px;
+      border: 1px solid rgba(160, 195, 240, 0.22);
+      border-radius: 16px;
+      background: rgba(160, 195, 240, 0.065);
+    }
+    .notice p { color: #c9defa; }
+
+    footer { margin-top: 18px; padding-top: 26px; border-top: 1px solid var(--border); color: var(--quiet); font-size: 12px; }
+    footer p { color: inherit; font-size: inherit; }
+    [hidden] { display: none !important; }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 760px); padding-top: 20px; }
+      .topbar { margin-bottom: 44px; }
+      .summary { grid-template-columns: 1fr; }
+      .summary article { min-height: 0; }
+      h1 { font-size: clamp(38px, 13vw, 56px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    @media print {
+      body { background: white; color: #111; }
+      .shell { width: 100%; padding: 0; }
+      .language-switch, .summary { display: none; }
+      h1, h2, strong, .brand { color: #111; }
+      p, ul, footer { color: #333; }
+      .legal-section, footer { border-color: #ddd; }
+      a { color: #111; }
     }
   </style>
 </head>
 <body>
+  <main class="shell">
+    <header>
+      <div class="topbar">
+        <a class="brand" href="https://camillelegal.github.io/womb/" aria-label="Womb">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Womb</span>
+        </a>
+        <nav class="language-switch" aria-label="Langue">
+          <button type="button" data-language="fr" aria-pressed="true">FR</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
 
-  <h1>Privacy Policy</h1>
-  <p class="date">Effective date: March 13, 2026</p>
+      <div data-copy="fr">
+        <p class="eyebrow">Vos données, clairement</p>
+        <h1>Politique de confidentialité</h1>
+        <p class="lede">Womb est conçu pour fonctionner d'abord sur votre téléphone. Cette page explique ce qui reste local, ce qui peut être synchronisé et les choix qui restent entre vos mains.</p>
+        <div class="summary" aria-label="Résumé">
+          <article><span class="dot"></span><strong>Local par défaut</strong><p>Sans compte, le profil et les événements restent sur cet appareil.</p></article>
+          <article><span class="dot"></span><strong>Compte facultatif</strong><p>La sauvegarde et le partage ne démarrent que si vous créez un compte.</p></article>
+          <article><span class="dot"></span><strong>Voix minimisée</strong><p>Aucun audio n'est envoyé à Womb. Seul le texte utile peut être analysé.</p></article>
+        </div>
+      </div>
 
-  <p>WOMB ("we", "our", "the app") is a baby sleep sound application built by
-  an independent developer. We take your privacy seriously. This policy explains
-  what data we collect, how we use it, and your rights.</p>
+      <div data-copy="en" hidden>
+        <p class="eyebrow">Your data, made clear</p>
+        <h1>Privacy Policy</h1>
+        <p class="lede">Womb is designed to work on your phone first. This page explains what stays local, what may be synced, and which choices remain in your hands.</p>
+        <div class="summary" aria-label="Summary">
+          <article><span class="dot"></span><strong>Local by default</strong><p>Without an account, the baby profile and events stay on this device.</p></article>
+          <article><span class="dot"></span><strong>Optional account</strong><p>Backup and sharing start only if you choose to create an account.</p></article>
+          <article><span class="dot"></span><strong>Minimised voice data</strong><p>No audio is sent to Womb. Only useful text may be analysed.</p></article>
+        </div>
+      </div>
+    </header>
 
-  <h2>1. Data we collect</h2>
+    <article data-copy="fr">
+      <section class="legal-section">
+        <h2>1. Qui est responsable de vos données ?</h2>
+        <p>Le responsable du traitement est <strong>Camille Le Gal</strong>, éditrice indépendante de Womb. Pour toute question ou demande relative à vos données, écrivez à <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>.</p>
+        <p><strong>Date d'entrée en vigueur :</strong> 8 septembre 2026.</p>
+      </section>
 
-  <p><strong>Anonymous usage analytics.</strong> We use PostHog to understand how
-  the app is used. This includes events like which screens are viewed, which
-  buttons are tapped, and which features are used. This data is anonymous and
-  cannot be used to identify you personally. PostHog data is stored on servers
-  located in the European Union.</p>
+      <section class="legal-section">
+        <h2>2. Données enregistrées sur votre appareil</h2>
+        <p>Womb conserve localement le profil de chaque bébé, notamment son prénom, sa date de naissance, le genre choisi et ses habitudes de sommeil, ainsi que les événements que vous ajoutez, vos réglages, vos prédictions et les mesures locales de personnalisation.</p>
+        <p>Sans compte Womb, ces données ne sont pas sauvegardées sur nos serveurs. Elles restent sur l'appareil jusqu'à ce que vous les supprimiez ou désinstalliez l'application. Certaines sauvegardes du système d'exploitation peuvent toutefois être gérées séparément par Apple ou Google selon vos réglages.</p>
+      </section>
 
-  <p><strong>Purchase information.</strong> If you subscribe to WOMB Premium,
-  your purchase is processed by Apple (App Store) or Google (Play Store) through
-  RevenueCat, our subscription management service. We do not have access to your
-  payment details (credit card number, billing address, etc.). RevenueCat
-  receives a transaction identifier and subscription status to manage your
-  access to premium features.</p>
+      <section class="legal-section">
+        <h2>3. Compte, sauvegarde et partage familial</h2>
+        <p>Le compte est facultatif pour l'usage local. Si vous choisissez de vous connecter avec Apple ou par code envoyé par e-mail, Supabase traite un identifiant de compte et, selon la méthode choisie, votre adresse e-mail ou l'adresse relais fournie par Apple.</p>
+        <p>Une copie des données suivantes peut alors être transmise par une connexion chiffrée et stockée chez Supabase : profils des bébés, événements, réglages synchronisés, rôles et alias des membres, invitations, droits d'accès et état nécessaire au partage familial. Le prénom du bébé fait donc partie de la sauvegarde en ligne lorsque vous activez un compte.</p>
+        <p>Si vous rejoignez une famille, les personnes autorisées peuvent voir ou modifier les données selon leur rôle. Le propriétaire contrôle les invitations et peut retirer un accès. Un accès limité ne donne accès qu'aux enfants et à la période prévus dans l'application.</p>
+      </section>
 
-  <p><strong>Local preferences.</strong> The app stores your settings (volume
-  levels, timer preferences, mixer configuration) locally on your device using
-  standard device storage. This data never leaves your device.</p>
+      <section class="legal-section">
+        <h2>4. Dictée vocale</h2>
+        <div class="notice"><p><strong>L'audio reste sur l'appareil.</strong> L'iPhone transforme votre voix en texte. Womb ne reçoit et ne conserve aucun enregistrement audio.</p></div>
+        <p>Le texte est envoyé au service Womb hébergé par Cloudflare. Les phrases simples sont interprétées par des règles automatiques. Si la phrase est ambiguë, le texte peut être transmis à l'API OpenAI afin de proposer des événements structurés.</p>
+        <p>La requête peut contenir les prénoms des bébés du profil afin d'attribuer les événements au bon enfant, ou des alias temporaires si un prénom manque ou n'est pas unique. Aucun identifiant persistant de bébé ou de compte n'est envoyé au fournisseur d'analyse. Un identifiant d'installation est transmis au service Womb pour limiter les abus. Le texte dicté part tel quel : si vous prononcez un prénom, il figure dans ce texte. La requête peut aussi contenir l'âge du bébé en mois, le fuseau horaire, ainsi que les horaires et types d'un nombre limité d'événements récents nécessaires à l'interprétation. Ni Womb ni son serveur ne conservent le texte. Womb demande également à l'API de ne pas stocker la réponse comme état applicatif.</p>
+        <p>OpenAI n'utilise pas les données de l'API pour entraîner ses modèles sauf accord explicite du client de l'API. Des journaux de surveillance des abus peuvent contenir la requête et la réponse pendant une durée allant jusqu'à 30 jours, ou plus longtemps si la loi l'exige ou si cela est raisonnablement nécessaire pour protéger les services ou des tiers.</p>
+      </section>
 
-  <h2>2. Data we do not collect</h2>
+      <section class="legal-section">
+        <h2>5. Mesure d'usage et diagnostics</h2>
+        <p>Womb utilise PostHog pour comprendre l'utilisation de l'application et corriger les erreurs. PostHog peut recevoir un identifiant pseudonyme, des informations techniques sur l'appareil et l'application, les écrans consultés, les fonctions utilisées, les étapes du parcours, des catégories d'erreur et des mesures agrégées de personnalisation. Le contenu des dictées, le prénom du bébé et les horaires exacts de ses événements ne sont pas envoyés à PostHog.</p>
+        <p>Pour les personnes qui activent l'accès de lancement, l'enregistrement de session reste désactivé jusqu'à un consentement explicite. S'il est accepté, tous les textes et toutes les images sont masqués avant la capture. Les replays sont hébergés dans l'Union européenne, conservés au maximum 30 jours et peuvent être arrêtés sans perdre l'accès à vie.</p>
+        <p>Après plusieurs jours d'utilisation, ces mêmes personnes peuvent choisir de répondre à un court sondage facultatif. Le choix rapide et le texte libre éventuel sont transmis à PostHog dans l'Union européenne uniquement pour améliorer Womb. L'application demande de ne saisir aucun prénom ni autre information personnelle. Ignorer ou fermer le sondage ne modifie pas l'accès à vie.</p>
+      </section>
 
-  <ul>
-    <li>We do not collect your name, email address, or any personal contact information.</li>
-    <li>We do not require you to create an account.</li>
-    <li>We do not collect your location.</li>
-    <li>We do not collect data about your baby or your family.</li>
-    <li>We do not sell, rent, or share any data with third parties for advertising purposes.</li>
-  </ul>
+      <section class="legal-section">
+        <h2>6. Abonnements et accès de lancement</h2>
+        <p>Les paiements sont traités par l'App Store ou, le cas échéant, Google Play. Womb ne reçoit pas vos coordonnées bancaires. RevenueCat reçoit un identifiant d'application ou de boutique, le produit choisi, l'état de l'abonnement et les identifiants de transaction nécessaires pour activer Womb Premium et restaurer les achats.</p>
+        <p>Pour limiter l'offre de lancement aux 100 premiers comptes, le service Womb traite une version hachée de l'identifiant RevenueCat et l'état de l'activation. Le code de lancement n'est pas intégré à l'application.</p>
+      </section>
 
-  <h2>3. Third-party services</h2>
+      <section class="legal-section">
+        <h2>7. Pourquoi utilisons-nous ces données ?</h2>
+        <ul>
+          <li><strong>Exécuter le service demandé :</strong> enregistrer les événements, calculer les fenêtres, gérer le compte, sauvegarder, restaurer, partager et fournir les fonctions achetées.</li>
+          <li><strong>Notre intérêt légitime :</strong> sécuriser le service, prévenir les abus, diagnostiquer les erreurs et améliorer Womb à partir de données limitées et pseudonymes.</li>
+          <li><strong>Votre consentement :</strong> enregistrer une session pour la cohorte de lancement et utiliser toute fonction facultative qui demande une permission spécifique.</li>
+          <li><strong>Nos obligations légales :</strong> répondre aux demandes valides, protéger les droits des utilisateurs et conserver les éléments imposés par la loi.</li>
+        </ul>
+      </section>
 
-  <p>The app uses the following third-party services, each with their own privacy policy:</p>
+      <section class="legal-section">
+        <h2>8. Prestataires et transferts</h2>
+        <p>Nous transmettons seulement les données nécessaires aux prestataires suivants :</p>
+        <ul>
+          <li><a href="https://supabase.com/privacy">Supabase</a>, authentification, base de données, sauvegarde et partage facultatifs.</li>
+          <li><a href="https://posthog.com/privacy">PostHog</a>, mesure d'usage, diagnostics et replays consentis, avec hébergement européen configuré.</li>
+          <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>, gestion des droits d'abonnement.</li>
+          <li><a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>, hébergement et protection du service de dictée et d'activation.</li>
+          <li><a href="https://openai.com/policies/privacy-policy/">OpenAI</a>, analyse de texte lorsque les règles locales ne suffisent pas.</li>
+          <li><a href="https://www.apple.com/legal/privacy/">Apple</a> et, le cas échéant, <a href="https://policies.google.com/privacy">Google</a>, distribution, paiement, restauration et services du système.</li>
+        </ul>
+        <p>Certains prestataires peuvent traiter des données hors de l'Espace économique européen. Dans ce cas, le transfert repose sur un mécanisme reconnu par le droit applicable, notamment une décision d'adéquation ou des clauses contractuelles types.</p>
+      </section>
 
-  <ul>
-    <li><strong>PostHog</strong> (analytics): <a href="https://posthog.com/privacy">posthog.com/privacy</a></li>
-    <li><strong>RevenueCat</strong> (subscriptions): <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
-    <li><strong>Apple App Store</strong>: <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></li>
-    <li><strong>Google Play Store</strong>: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
-  </ul>
+      <section class="legal-section">
+        <h2>9. Durées de conservation</h2>
+        <ul>
+          <li>Les données locales restent sur l'appareil jusqu'à leur suppression ou la désinstallation.</li>
+          <li>Les données de compte et de sauvegarde sont conservées tant que le compte ou la famille concernée existe. La suppression du compte retire l'accès et supprime les données en ligne contrôlées par ce compte. Dans un espace partagé dont vous n'êtes pas propriétaire, les événements familiaux et l'historique minimal des accès peuvent rester avec la famille afin d'en préserver l'intégrité.</li>
+          <li>Les invitations expirent après 7 jours. Leurs empreintes et traces d'audit peuvent être conservées tant que la famille existe pour prévenir les réutilisations et documenter les accès.</li>
+          <li>Les données PostHog ordinaires sont conservées jusqu'à 12 mois. Les replays consentis sont supprimés après 30 jours au maximum.</li>
+          <li>Womb ne conserve pas les textes de dictée sur son serveur. OpenAI peut conserver les journaux de surveillance des abus selon les conditions précisées à la section 4.</li>
+          <li>Les données de transaction sont conservées par les boutiques et RevenueCat selon leurs obligations et politiques propres.</li>
+        </ul>
+      </section>
 
-  <h2>4. Children's privacy</h2>
+      <section class="legal-section">
+        <h2>10. Vos choix et vos droits</h2>
+        <p>Vous pouvez corriger ou supprimer les événements dans Womb, exporter les données d'un compte, vous déconnecter, quitter un partage ou supprimer le compte depuis les réglages. La suppression de l'application efface les données locales de l'appareil, mais ne supprime pas automatiquement une sauvegarde de compte.</p>
+        <p>Selon le RGPD, vous pouvez demander l'accès, la rectification, l'effacement, la limitation ou la portabilité de vos données, vous opposer à certains traitements et retirer votre consentement à tout moment. Écrivez à <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>. Nous pouvons demander les éléments raisonnablement nécessaires pour vérifier votre identité. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.</p>
+      </section>
 
-  <p>WOMB is designed for parents, not for children. The app does not knowingly
-  collect any data from children under 13. The app plays soothing sounds to help
-  babies sleep, but it is operated by the parent or caregiver, not by the child.</p>
+      <section class="legal-section">
+        <h2>11. Données concernant les enfants</h2>
+        <p>Womb est destiné aux parents et aux personnes qui s'occupent d'un enfant, pas aux enfants eux-mêmes. L'adulte qui ajoute ou partage des informations concernant un bébé doit être autorisé à le faire et limiter les accès aux personnes légitimes.</p>
+      </section>
 
-  <h2>5. Data retention</h2>
+      <section class="legal-section">
+        <h2>12. Sécurité et mises à jour</h2>
+        <p>Nous utilisons notamment des connexions chiffrées, des contrôles d'accès par famille, des invitations à usage unique et une limitation des requêtes. Aucun service n'est toutefois exempt de risque. Protégez l'accès à votre appareil, à votre e-mail et à votre compte Apple.</p>
+        <p>Cette politique peut évoluer avec Womb ou la réglementation. En cas de changement important, la date sera mise à jour et une information adaptée sera fournie dans l'application ou sur cette page.</p>
+      </section>
+    </article>
 
-  <p>Anonymous analytics data is retained for up to 12 months, then automatically
-  deleted. Local preferences are stored on your device and are removed when you
-  uninstall the app.</p>
+    <article data-copy="en" hidden>
+      <section class="legal-section">
+        <h2>1. Who is responsible for your data?</h2>
+        <p>The data controller is <strong>Camille Le Gal</strong>, Womb's independent developer. For any privacy question or request, email <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>.</p>
+        <p><strong>Effective date:</strong> September 8, 2026.</p>
+      </section>
 
-  <h2>6. Your rights</h2>
+      <section class="legal-section">
+        <h2>2. Data stored on your device</h2>
+        <p>Womb stores each baby's profile locally, including first name, date of birth, selected gender and sleep habits, together with the events you add, your settings, predictions and local personalisation measurements.</p>
+        <p>Without a Womb account, this data is not backed up on our servers. It stays on the device until you delete it or uninstall the app. Operating system backups may still be managed separately by Apple or Google according to your settings.</p>
+      </section>
 
-  <p>You can request deletion of your analytics data at any time by contacting us
-  at the email address below. If you are located in the European Union, you have
-  additional rights under the GDPR, including the right to access, correct, or
-  delete your data.</p>
+      <section class="legal-section">
+        <h2>3. Account, backup and family sharing</h2>
+        <p>An account is optional for local use. If you choose to sign in with Apple or a code sent by email, Supabase processes an account identifier and, depending on the chosen method, your email address or the relay address supplied by Apple.</p>
+        <p>A copy of the following data may then be transmitted over an encrypted connection and stored by Supabase: baby profiles, events, synced settings, member roles and aliases, invitations, access rights and the state required for family sharing. The baby's first name is therefore included in the online backup when you enable an account.</p>
+        <p>If you join a family, authorised people may view or edit data according to their role. The owner controls invitations and may revoke access. Limited access only covers the children and period specified in the app.</p>
+      </section>
 
-  <h2>7. Changes to this policy</h2>
+      <section class="legal-section">
+        <h2>4. Voice entry</h2>
+        <div class="notice"><p><strong>Audio stays on the device.</strong> Your iPhone turns speech into text. Womb does not receive or retain any audio recording.</p></div>
+        <p>The text is sent to Womb's service hosted by Cloudflare. Simple phrases are interpreted by automatic rules. If a phrase is ambiguous, the text may be sent to the OpenAI API to suggest structured events.</p>
+        <p>The request may include baby profile first names to assign events to the correct child, or temporary aliases when names are missing or duplicated. No persistent baby or account identifier is sent to the parsing provider. An installation identifier is sent to Womb's service to limit abuse. Dictated text is sent as spoken: if you say a name, that name is included in the text. The request may also include the baby's age in months, the time zone, and the times and types of a limited number of recent events needed for interpretation. Neither Womb nor its server retains the text. Womb also asks the API not to store the response as application state.</p>
+        <p>OpenAI does not use API data to train its models unless the API customer explicitly opts in. Abuse monitoring logs may contain the request and response for up to 30 days, or longer where required by law or reasonably necessary to protect the services or any third party.</p>
+      </section>
 
-  <p>We may update this privacy policy from time to time. If we make significant
-  changes, we will notify you through the app or on this page. The effective date
-  at the top of this page indicates when this policy was last updated.</p>
+      <section class="legal-section">
+        <h2>5. Usage analytics and diagnostics</h2>
+        <p>Womb uses PostHog to understand app usage and fix errors. PostHog may receive a pseudonymous identifier, technical app and device information, screens viewed, features used, journey steps, error categories and aggregated personalisation measurements. Dictation content, the baby's first name and exact event times are not sent to PostHog.</p>
+        <p>For people who activate launch access, session recording stays disabled until explicit consent is given. If accepted, all text and images are masked before capture. Replays are hosted in the European Union, kept for no more than 30 days and may be stopped without losing lifetime access.</p>
+        <p>After several days of use, the same people may choose to answer a short optional survey. The quick choice and any free-text response are sent to PostHog in the European Union solely to improve Womb. The app asks respondents not to include names or other personal information. Ignoring or closing the survey does not affect lifetime access.</p>
+      </section>
 
-  <h2>8. Contact</h2>
+      <section class="legal-section">
+        <h2>6. Subscriptions and launch access</h2>
+        <p>Payments are handled by the App Store or, where applicable, Google Play. Womb does not receive your payment card details. RevenueCat receives an app or store identifier, the selected product, subscription status and transaction identifiers needed to unlock Womb Premium and restore purchases.</p>
+        <p>To limit the launch offer to the first 100 accounts, Womb's service processes a hashed version of the RevenueCat identifier and the activation status. The launch code is not embedded in the app.</p>
+      </section>
 
-  <p>If you have any questions about this privacy policy, please contact us at:<br>
-  <a href="mailto:thewombapp.contact@gmail.com">thewombapp.contact@gmail.com</a></p>
+      <section class="legal-section">
+        <h2>7. Why we use this data</h2>
+        <ul>
+          <li><strong>Performing the requested service:</strong> recording events, calculating windows, managing an account, backing up, restoring, sharing and supplying purchased features.</li>
+          <li><strong>Our legitimate interests:</strong> securing the service, preventing abuse, diagnosing errors and improving Womb using limited and pseudonymous data.</li>
+          <li><strong>Your consent:</strong> recording a session for the launch cohort and using any optional feature that requires a specific permission.</li>
+          <li><strong>Our legal obligations:</strong> responding to valid requests, protecting users' rights and retaining information required by law.</li>
+        </ul>
+      </section>
 
-  <div class="footer">
-    <p>WOMB - Baby Sleep Sounds<br>
-    Built by an independent developer, for tired parents.</p>
-  </div>
+      <section class="legal-section">
+        <h2>8. Providers and transfers</h2>
+        <p>We disclose only the data required by the following providers:</p>
+        <ul>
+          <li><a href="https://supabase.com/privacy">Supabase</a>, optional authentication, database, backup and sharing.</li>
+          <li><a href="https://posthog.com/privacy">PostHog</a>, analytics, diagnostics and consented replays, configured with European hosting.</li>
+          <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>, subscription entitlement management.</li>
+          <li><a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>, hosting and protection of the voice and activation service.</li>
+          <li><a href="https://openai.com/policies/privacy-policy/">OpenAI</a>, text analysis when local rules are not enough.</li>
+          <li><a href="https://www.apple.com/legal/privacy/">Apple</a> and, where applicable, <a href="https://policies.google.com/privacy">Google</a>, for distribution, payment, restoration and operating system services.</li>
+        </ul>
+        <p>Some providers may process data outside the European Economic Area. Where this occurs, the transfer relies on a mechanism recognised by applicable law, such as an adequacy decision or standard contractual clauses.</p>
+      </section>
 
+      <section class="legal-section">
+        <h2>9. Retention</h2>
+        <ul>
+          <li>Local data stays on the device until it is deleted or the app is uninstalled.</li>
+          <li>Account and backup data is kept while the relevant account or family exists. Account deletion revokes access and deletes the online data controlled by that account. In a shared space that you do not own, family events and a minimal access history may remain with the family to preserve its integrity.</li>
+          <li>Invitations expire after 7 days. Their hashes and audit records may be kept while the family exists to prevent reuse and document access.</li>
+          <li>Ordinary PostHog data is kept for up to 12 months. Consented replays are deleted after no more than 30 days.</li>
+          <li>Womb does not retain voice text on its server. OpenAI may retain abuse monitoring logs as described in section 4.</li>
+          <li>Transaction data is retained by the stores and RevenueCat according to their own legal duties and policies.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>10. Your choices and rights</h2>
+        <p>You can correct or delete events in Womb, export account data, sign out, leave a shared family or delete the account in Settings. Uninstalling the app removes local app data but does not automatically delete an account backup.</p>
+        <p>Under the GDPR, you may request access, correction, deletion, restriction or portability, object to certain processing and withdraw consent at any time. Email <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>. We may request information reasonably needed to verify your identity. You may also lodge a complaint with the French data protection authority, the <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>11. Children's data</h2>
+        <p>Womb is intended for parents and caregivers, not for children themselves. An adult who adds or shares information about a baby must be authorised to do so and must restrict access to legitimate caregivers.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>12. Security and updates</h2>
+        <p>We use measures including encrypted connections, family based access controls, single use invitations and rate limiting. No service is completely risk free. Protect access to your device, email and Apple account.</p>
+        <p>This policy may change as Womb or the law evolves. If a change is material, the date will be updated and appropriate notice will be given in the app or on this page.</p>
+      </section>
+    </article>
+
+    <footer>
+      <p>Womb, un guide du sommeil de bébé conçu avec soin à Paris.</p>
+      <p><a href="terms-of-use.html">Conditions d'utilisation / Terms of Use</a></p>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll('[data-language]')];
+      const copies = [...document.querySelectorAll('[data-copy]')];
+      const supported = ['fr', 'en'];
+
+      function setLanguage(language, updateHash = true) {
+        const selected = supported.includes(language) ? language : 'fr';
+        document.documentElement.lang = selected;
+        document.title = selected === 'fr'
+          ? 'Womb | Politique de confidentialité'
+          : 'Womb | Privacy Policy';
+        copies.forEach((copy) => { copy.hidden = copy.dataset.copy !== selected; });
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.language === selected));
+        });
+        if (updateHash) history.replaceState(null, '', `#${selected}`);
+      }
+
+      const fromHash = window.location.hash.slice(1).toLowerCase();
+      const initial = fromHash === 'en' ? 'en' : 'fr';
+      buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+      setLanguage(initial, false);
+    })();
+  </script>
 </body>
 </html>
