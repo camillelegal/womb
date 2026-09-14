@@ -1,155 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WOMB - Terms of Use</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#050506">
+  <meta name="description" content="Conditions d'utilisation de Womb, guide du sommeil de bébé.">
+  <title>Womb | Conditions d'utilisation</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      color-scheme: dark;
+      --background: #050506;
+      --surface: #0c0c0d;
+      --cream: #f1ecd8;
+      --cream-strong: #f5efdc;
+      --muted: #a8a293;
+      --quiet: #807c70;
+      --blue: #a0c3f0;
+      --pink: #f2afc4;
+      --border: rgba(241, 236, 216, 0.12);
+      --border-strong: rgba(241, 236, 216, 0.24);
+      --shadow: 0 26px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #000;
-      color: #ccc;
-      padding: 24px;
-      max-width: 680px;
-      margin: 0 auto;
-      line-height: 1.7;
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(160, 195, 240, 0.10), transparent 31rem),
+        radial-gradient(circle at 92% 16%, rgba(242, 175, 196, 0.08), transparent 28rem),
+        var(--background);
+      color: var(--cream);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
     }
-    h1 {
-      color: #fff;
-      font-size: 24px;
-      font-weight: 300;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+
+    a { color: var(--blue); text-underline-offset: 0.2em; }
+    a:hover { color: var(--cream-strong); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+
+    .shell { width: min(100% - 32px, 760px); margin: 0 auto; padding: 28px 0 72px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 58px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--cream); text-decoration: none; }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border-strong);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(245, 239, 220, 0.16), transparent 48%), var(--surface);
+      box-shadow: inset 0 0 18px rgba(160, 195, 240, 0.08);
     }
-    .date { color: #666; font-size: 13px; margin-bottom: 32px; }
-    h2 {
-      color: #FF9B8E;
-      font-size: 16px;
-      font-weight: 500;
-      margin-top: 28px;
-      margin-bottom: 10px;
-    }
-    p { margin-bottom: 14px; font-size: 14px; }
-    ul { margin-bottom: 14px; padding-left: 20px; }
-    li { font-size: 14px; margin-bottom: 6px; }
-    a { color: #FF9B8E; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #222;
-      color: #555;
+    .brand-name { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    .language-switch { display: inline-flex; padding: 3px; border: 1px solid var(--border); border-radius: 999px; background: rgba(12, 12, 13, 0.84); }
+    .language-switch button {
+      min-width: 44px;
+      min-height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
       font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .language-switch button[aria-pressed="true"] { background: var(--cream); color: #1a1a18; }
+
+    .eyebrow { color: var(--pink); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+    h1 { max-width: 650px; margin: 13px 0 18px; font-size: clamp(40px, 8vw, 68px); line-height: 1.04; letter-spacing: -0.035em; }
+    .lede { max-width: 660px; margin: 0; color: var(--muted); font-size: 17px; }
+
+    .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 36px 0 46px; }
+    .summary article {
+      min-height: 126px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(23, 23, 24, 0.92), rgba(10, 10, 11, 0.94));
+      box-shadow: var(--shadow);
+    }
+    .summary .dot { display: block; width: 8px; height: 8px; margin-bottom: 19px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 16px rgba(242, 175, 196, 0.40); }
+    .summary article:nth-child(2) .dot { background: var(--blue); box-shadow: 0 0 16px rgba(160, 195, 240, 0.45); }
+    .summary article:nth-child(3) .dot { background: #f8e4be; box-shadow: 0 0 16px rgba(248, 228, 190, 0.38); }
+    .summary strong { display: block; margin-bottom: 5px; color: var(--cream-strong); font-size: 14px; }
+    .summary p { margin: 0; color: var(--quiet); font-size: 12px; line-height: 1.5; }
+
+    .legal-section { padding: 30px 0; border-top: 1px solid var(--border); }
+    .legal-section h2 { margin: 0 0 15px; color: var(--cream-strong); font-size: 25px; line-height: 1.2; }
+    p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--cream-strong); font-weight: 650; }
+    ul { margin: 10px 0 0; padding-left: 21px; color: var(--muted); }
+    li { margin: 8px 0; padding-left: 4px; }
+    .notice { margin: 4px 0 20px; padding: 18px 20px; border: 1px solid rgba(242, 175, 196, 0.22); border-radius: 16px; background: rgba(242, 175, 196, 0.065); }
+    .notice p { color: #f7cfdc; }
+
+    footer { margin-top: 18px; padding-top: 26px; border-top: 1px solid var(--border); color: var(--quiet); font-size: 12px; }
+    footer p { color: inherit; font-size: inherit; }
+    [hidden] { display: none !important; }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 760px); padding-top: 20px; }
+      .topbar { margin-bottom: 44px; }
+      .summary { grid-template-columns: 1fr; }
+      .summary article { min-height: 0; }
+      h1 { font-size: clamp(38px, 13vw, 56px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    @media print {
+      body { background: white; color: #111; }
+      .shell { width: 100%; padding: 0; }
+      .language-switch, .summary { display: none; }
+      h1, h2, strong, .brand { color: #111; }
+      p, ul, footer { color: #333; }
+      .legal-section, footer { border-color: #ddd; }
+      a { color: #111; }
     }
   </style>
 </head>
 <body>
+  <main class="shell">
+    <header>
+      <div class="topbar">
+        <a class="brand" href="https://camillelegal.github.io/womb/" aria-label="Womb">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Womb</span>
+        </a>
+        <nav class="language-switch" aria-label="Langue">
+          <button type="button" data-language="fr" aria-pressed="true">FR</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
 
-  <h1>Terms of Use</h1>
-  <p class="date">Effective date: March 13, 2026</p>
+      <div data-copy="fr">
+        <p class="eyebrow">Des règles simples</p>
+        <h1>Conditions d'utilisation</h1>
+        <p class="lede">Ces conditions encadrent l'utilisation de Womb. Elles complètent les règles de la boutique depuis laquelle l'application est téléchargée.</p>
+        <div class="summary" aria-label="Résumé">
+          <article><span class="dot"></span><strong>Un guide, pas un diagnostic</strong><p>Les prédictions aident à s'orienter, elles ne remplacent jamais un professionnel.</p></article>
+          <article><span class="dot"></span><strong>Le sommeil reste gratuit</strong><p>Le suivi, l'historique et les fenêtres de sommeil restent accessibles sans abonnement.</p></article>
+          <article><span class="dot"></span><strong>Vous gardez le contrôle</strong><p>Compte facultatif, abonnement résiliable dans la boutique, données exportables.</p></article>
+        </div>
+      </div>
 
-  <p>Welcome to WOMB. By downloading, installing, or using the app, you agree to
-  these terms. If you do not agree, please do not use the app.</p>
+      <div data-copy="en" hidden>
+        <p class="eyebrow">Simple ground rules</p>
+        <h1>Terms of Use</h1>
+        <p class="lede">These terms govern your use of Womb. They supplement the rules of the store from which the app is downloaded.</p>
+        <div class="summary" aria-label="Summary">
+          <article><span class="dot"></span><strong>Guidance, not diagnosis</strong><p>Predictions help you find your bearings. They never replace a professional.</p></article>
+          <article><span class="dot"></span><strong>Sleep tracking stays free</strong><p>Tracking, history and sleep windows remain available without a subscription.</p></article>
+          <article><span class="dot"></span><strong>You stay in control</strong><p>Optional account, store-managed cancellation and exportable account data.</p></article>
+        </div>
+      </div>
+    </header>
 
-  <h2>1. Description of the service</h2>
+    <article data-copy="fr">
+      <section class="legal-section">
+        <h2>1. Éditeur et acceptation</h2>
+        <p>Womb est édité par <strong>Camille Le Gal</strong>, développeuse indépendante. Contact : <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>.</p>
+        <p>En téléchargeant ou en utilisant Womb, vous acceptez ces conditions. Si vous n'êtes pas d'accord, n'utilisez pas l'application. Vous devez être majeur et avoir la capacité d'accepter un contrat, ou utiliser Womb sous la responsabilité d'un adulte.</p>
+        <p><strong>Date d'entrée en vigueur :</strong> 14 septembre 2026.</p>
+      </section>
 
-  <p>WOMB is a mobile application that plays layered ambient sounds designed to
-  soothe babies and help them fall asleep. The app recreates the acoustic
-  environment of the womb using a combination of heartbeat, pink noise, fluid
-  sounds, and other natural frequencies.</p>
+      <section class="legal-section">
+        <h2>2. Ce que propose Womb</h2>
+        <p>Womb aide les parents et les personnes qui s'occupent d'un bébé à enregistrer son rythme, consulter un historique et voir des fenêtres indicatives pour les prochaines siestes et le coucher. L'application peut également proposer des statistiques, une saisie vocale, plusieurs profils, une sauvegarde facultative et un partage familial.</p>
+        <p>Les fonctions peuvent évoluer. Nous pouvons corriger, ajouter, remplacer ou retirer une fonction, notamment pour des raisons de sécurité, de fiabilité, de droit ou de maintenance, sans supprimer les droits déjà acquis sur un abonnement en cours.</p>
+      </section>
 
-  <h2>2. Medical disclaimer</h2>
+      <section class="legal-section">
+        <h2>3. Information de santé et sécurité</h2>
+        <div class="notice"><p><strong>Womb n'est ni un dispositif médical, ni un service de diagnostic.</strong> Ses fenêtres et explications sont des estimations générales qui peuvent être imprécises ou inadaptées à un enfant donné.</p></div>
+        <p>Vous restez responsable des décisions concernant l'enfant. Ne retardez jamais une consultation et ne remplacez pas l'avis d'un pédiatre ou d'un autre professionnel qualifié par une recommandation de l'application. En cas d'urgence ou de signe inquiétant, contactez immédiatement les services d'urgence ou un professionnel de santé.</p>
+        <p>Respectez les recommandations de sommeil sûr applicables dans votre pays et n'utilisez jamais un appareil mobile d'une manière qui pourrait mettre un bébé en danger. Womb ne garantit ni l'endormissement, ni une durée de sommeil, ni un résultat de santé.</p>
+      </section>
 
-  <p><strong>WOMB is not a medical device and does not provide medical advice.</strong>
-  The app is designed as a comfort tool for parents. It is not intended to
-  diagnose, treat, cure, or prevent any medical condition. If your baby has
-  persistent sleep difficulties, colic, reflux, or any health concern, please
-  consult a qualified healthcare professional.</p>
+      <section class="legal-section">
+        <h2>4. Compte, sauvegarde et famille</h2>
+        <p>Womb fonctionne localement sans compte. Un compte gratuit est nécessaire pour la sauvegarde en ligne, la restauration, l'accès de lancement et le partage familial. Vous pouvez vous connecter avec Apple ou, lorsque cette option est disponible, par code envoyé par e-mail.</p>
+        <p>Vous êtes responsable de la sécurité de votre appareil, de votre adresse e-mail et de votre compte Apple. Prévenez-nous rapidement si vous pensez qu'un accès est compromis. Ne partagez pas un code de connexion.</p>
+        <p>Le propriétaire d'une famille choisit les personnes invitées et leurs droits. Il doit obtenir l'accord nécessaire avant de partager des informations sur un enfant. Chaque invité doit utiliser son propre compte. Les utilisateurs s'engagent à respecter la confidentialité des données familiales et à retirer un accès devenu inutile. La perte d'un abonnement Womb Premium peut désactiver le partage sans effacer les données déjà enregistrées.</p>
+      </section>
 
-  <p>Never leave a baby unattended with any device. Always follow safe sleep
-  guidelines recommended by your pediatrician.</p>
+      <section class="legal-section">
+        <h2>5. Version gratuite et Womb Premium</h2>
+        <p>Le suivi du sommeil, son historique, les fenêtres indicatives, leurs notifications et le suivi de plusieurs enfants restent disponibles gratuitement. Womb Premium donne accès aux fonctions présentées dans l'application au moment de l'achat, notamment les statistiques complètes, la saisie vocale, les événements hors sommeil et le partage du compte lorsque ces fonctions sont disponibles.</p>
+        <p>Womb propose actuellement un abonnement mensuel et un abonnement annuel. Le prix, la devise, les taxes et les conditions affichés dans la boutique au moment de la confirmation font foi.</p>
+      </section>
 
-  <h2>3. Free trial and subscriptions</h2>
+      <section class="legal-section">
+        <h2>6. Essai, renouvellement et résiliation</h2>
+        <p>Womb peut offrir un accès découverte de 24 heures dans l'application, sans achat ni renouvellement automatique. Cet accès est distinct de l'essai d'un abonnement proposé par la boutique.</p>
+        <p>Lorsqu'il est proposé, l'essai gratuit de 7 jours concerne uniquement l'abonnement annuel et n'est accessible qu'aux comptes éligibles selon les règles de la boutique. À la fin de l'essai, l'abonnement annuel démarre automatiquement au prix affiché lors de la confirmation, sauf résiliation avant la fin de l'essai.</p>
+        <p>Les abonnements mensuels et annuels se renouvellent automatiquement jusqu'à leur résiliation. Le paiement, le renouvellement, la résiliation et les remboursements sont gérés par la boutique. Vous pouvez gérer l'abonnement dans les réglages de votre compte Apple ou Google. La suppression de Womb ou d'un compte Womb ne résilie pas l'abonnement de la boutique.</p>
+        <p>Le rappel de fin d'essai proposé par Womb est un service de courtoisie. Son affichage dépend des autorisations et du fonctionnement de l'appareil. Vous restez responsable de la date présentée par la boutique.</p>
+        <p>Les droits de rétractation et de remboursement prévus par la loi restent applicables. Leur exercice suit les procédures de la boutique qui a traité le paiement.</p>
+      </section>
 
-  <p><strong>Free trial.</strong> New users receive a 7-day free trial with
-  access to all premium features. After the trial ends, the app reverts to a
-  free version with limited features: the sound mixer is locked, the sleep
-  timer is not available, and background playback is disabled.</p>
+      <section class="legal-section">
+        <h2>7. Offre d'accès à vie de lancement</h2>
+        <p>Une offre promotionnelle peut accorder Womb Premium à vie aux 100 premiers comptes qui activent un code valide. Elle est limitée à une activation par compte, sans valeur monétaire, non revendable et non transférable en dehors des mécanismes familiaux prévus dans Womb.</p>
+        <p>Un compte Womb est nécessaire pour conserver cet accès lors d'une réinstallation ou d'un changement d'appareil. Le consentement à l'enregistrement de session est distinct de l'accès promotionnel. Refuser ou retirer ce consentement ne supprime pas l'accès à vie.</p>
+        <p>Nous pouvons refuser ou retirer une activation obtenue par fraude, automatisation, contournement de la limite ou violation grave de ces conditions.</p>
+      </section>
 
-  <p><strong>Premium subscriptions.</strong> WOMB offers three premium plans:</p>
+      <section class="legal-section">
+        <h2>8. Utilisation autorisée</h2>
+        <p>Womb vous accorde un droit personnel, limité, non exclusif et non transférable d'utiliser l'application pour vos besoins privés et familiaux. Vous ne devez pas :</p>
+        <ul>
+          <li>utiliser Womb à des fins illégales, trompeuses ou portant atteinte aux droits d'autrui ;</li>
+          <li>accéder sans autorisation aux données d'une autre famille ou partager une invitation avec une personne illégitime ;</li>
+          <li>perturber, surcharger, tester abusivement ou contourner la sécurité, les limites d'usage, les abonnements ou les contrôles d'accès ;</li>
+          <li>copier, vendre, redistribuer ou exploiter commercialement l'application ou son contenu ;</li>
+          <li>désassembler ou rétroconcevoir l'application, sauf dans la mesure expressément permise par la loi.</li>
+        </ul>
+      </section>
 
-  <ul>
-    <li><strong>Monthly</strong>: auto-renewing subscription billed every month.</li>
-    <li><strong>Yearly</strong>: auto-renewing subscription billed every year.</li>
-    <li><strong>Lifetime</strong>: one-time purchase granting permanent access.</li>
-  </ul>
+      <section class="legal-section">
+        <h2>9. Vos contenus et la propriété intellectuelle</h2>
+        <p>Vous conservez vos droits sur les informations que vous saisissez. Vous accordez à Womb une autorisation limitée de les héberger, les traiter, les synchroniser et les transmettre aux personnes que vous invitez, uniquement pour fournir le service.</p>
+        <p>L'application, son code, son identité visuelle, ses textes, ses illustrations et ses contenus sont protégés par les droits de propriété intellectuelle de l'éditrice ou de ses concédants. Aucun autre droit ne vous est cédé.</p>
+      </section>
 
-  <p><strong>Payment.</strong> All payments are processed through the Apple App
-  Store or Google Play Store. Prices are displayed in your local currency at
-  the time of purchase.</p>
+      <section class="legal-section">
+        <h2>10. Services tiers et disponibilité</h2>
+        <p>Womb dépend notamment de la boutique, de RevenueCat, Supabase, PostHog, Cloudflare, OpenAI et des services du système. Leurs propres conditions peuvent s'appliquer. Une panne, une connexion indisponible ou une modification d'un service tiers peut affecter les achats, la synchronisation, le partage, la dictée ou l'analytics, mais la saisie et la consultation locales restent conçues pour fonctionner hors ligne.</p>
+        <p>Nous faisons des efforts raisonnables pour maintenir Womb fiable et sécurisé, sans garantir une disponibilité permanente, l'absence totale d'erreurs ou la compatibilité avec tout appareil et toute version du système.</p>
+      </section>
 
-  <p><strong>Auto-renewal.</strong> Monthly and yearly subscriptions automatically
-  renew unless you cancel at least 24 hours before the end of the current
-  billing period. Your account will be charged for renewal within 24 hours prior
-  to the end of the current period.</p>
+      <section class="legal-section">
+        <h2>11. Suspension et suppression</h2>
+        <p>Vous pouvez cesser d'utiliser Womb à tout moment. Vous pouvez supprimer votre compte depuis les réglages, sous réserve de transférer d'abord la propriété d'une famille partagée si nécessaire.</p>
+        <p>Nous pouvons limiter ou suspendre un compte en cas de risque de sécurité, de fraude, d'abus ou de violation grave de ces conditions. Lorsque la situation le permet, nous vous informerons et vous donnerons la possibilité de corriger le problème.</p>
+      </section>
 
-  <p><strong>Cancellation.</strong> You can cancel your subscription at any time
-  through your device's subscription settings (Settings > Apple ID > Subscriptions
-  on iOS, or Google Play Store > Subscriptions on Android). Cancellation takes
-  effect at the end of the current billing period. No refunds are provided for
-  partial periods.</p>
+      <section class="legal-section">
+        <h2>12. Responsabilité et garanties légales</h2>
+        <p>Womb est fourni avec le soin raisonnablement attendu d'un service numérique. Dans la mesure permise par la loi, nous ne sommes pas responsables d'un dommage indirect, d'une perte de données causée par l'absence de sauvegarde choisie, d'une décision médicale prise contre l'avis d'un professionnel, ou d'un événement hors de notre contrôle raisonnable.</p>
+        <p>Rien dans ces conditions ne limite les droits impératifs du consommateur, les garanties légales, ni une responsabilité qui ne peut être exclue par la loi. Si notre responsabilité peut légalement être limitée, elle l'est aux dommages directs et prévisibles résultant d'un manquement prouvé.</p>
+      </section>
 
-  <p><strong>Restore purchases.</strong> If you reinstall the app or switch
-  devices, you can restore your previous purchases using the "Restore purchases"
-  option in the app.</p>
+      <section class="legal-section">
+        <h2>13. Licence de la boutique</h2>
+        <p>Sur les appareils Apple, la <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">licence standard d'utilisateur final d'Apple</a> s'applique à l'application sauf si une licence personnalisée est publiée dans l'App Store. Ces conditions règlent les fonctions et services propres à Womb. En cas de conflit sur la licence de l'application, la licence applicable de la boutique prévaut.</p>
+      </section>
 
-  <h2>4. Acceptable use</h2>
+      <section class="legal-section">
+        <h2>14. Modifications, droit applicable et contact</h2>
+        <p>Nous pouvons mettre à jour ces conditions pour refléter une évolution de Womb, de nos prestataires ou du droit. Un changement important sera signalé de manière adaptée. Il ne réduira pas rétroactivement un droit déjà payé sans base légale.</p>
+        <p>Ces conditions sont régies par le droit français. Si vous êtes consommateur, vous conservez également les protections impératives et l'accès aux tribunaux prévus par le droit de votre pays de résidence. En cas de difficulté, contactez d'abord <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a> afin que nous cherchions une solution.</p>
+      </section>
+    </article>
 
-  <p>You agree to use the app only for its intended purpose. You may not:</p>
+    <article data-copy="en" hidden>
+      <section class="legal-section">
+        <h2>1. Publisher and acceptance</h2>
+        <p>Womb is published by <strong>Camille Le Gal</strong>, an independent developer. Contact: <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>.</p>
+        <p>By downloading or using Womb, you agree to these terms. If you do not agree, do not use the app. You must be an adult able to enter into a contract, or use Womb under an adult's responsibility.</p>
+        <p><strong>Effective date:</strong> September 14, 2026.</p>
+      </section>
 
-  <ul>
-    <li>Copy, modify, or distribute the app or its content.</li>
-    <li>Reverse-engineer, decompile, or disassemble the app.</li>
-    <li>Use the app for any unlawful purpose.</li>
-    <li>Attempt to bypass subscription restrictions or payment systems.</li>
-  </ul>
+      <section class="legal-section">
+        <h2>2. What Womb provides</h2>
+        <p>Womb helps parents and caregivers record a baby's rhythm, view a history and see indicative windows for upcoming naps and bedtime. The app may also provide statistics, voice entry, multiple profiles, optional backup and family sharing.</p>
+        <p>Features may evolve. We may fix, add, replace or remove a feature for security, reliability, legal or maintenance reasons, without removing rights already acquired under a current subscription.</p>
+      </section>
 
-  <h2>5. Intellectual property</h2>
+      <section class="legal-section">
+        <h2>3. Health information and safety</h2>
+        <div class="notice"><p><strong>Womb is not a medical device or diagnostic service.</strong> Its windows and explanations are general estimates that may be inaccurate or unsuitable for a particular child.</p></div>
+        <p>You remain responsible for decisions concerning the child. Never delay care or replace advice from a paediatrician or other qualified professional with an app recommendation. In an emergency or if you notice a concerning sign, contact emergency services or a healthcare professional immediately.</p>
+        <p>Follow the safe sleep guidance that applies in your country and never use a mobile device in a way that could put a baby at risk. Womb does not guarantee that a child will fall asleep, sleep for a particular duration or achieve any health outcome.</p>
+      </section>
 
-  <p>All content in the app, including sounds, design, code, and text, is the
-  property of the developer or used under license. You are granted a limited,
-  non-exclusive, non-transferable license to use the app for personal,
-  non-commercial purposes.</p>
+      <section class="legal-section">
+        <h2>4. Account, backup and family</h2>
+        <p>Womb works locally without an account. A free account is required for online backup, restoration, launch access and family sharing. You may sign in with Apple or, where available, a code sent by email.</p>
+        <p>You are responsible for the security of your device, email address and Apple account. Tell us promptly if you believe access has been compromised. Do not share a sign-in code.</p>
+        <p>The family owner chooses invited people and their rights. The owner must obtain any permission needed before sharing information about a child. Each guest must use their own account. Users agree to respect the confidentiality of family data and revoke access when it is no longer needed. Losing a Womb Premium subscription may disable sharing without deleting previously recorded data.</p>
+      </section>
 
-  <h2>6. Limitation of liability</h2>
+      <section class="legal-section">
+        <h2>5. Free version and Womb Premium</h2>
+        <p>Sleep tracking, its history, indicative windows, their notifications and multiple-child tracking remain available for free. Womb Premium gives access to the features presented in the app at the time of purchase, including full statistics, voice entry, non-sleep events and account sharing when those features are available.</p>
+        <p>Womb currently offers monthly and annual subscriptions. The price, currency, tax and conditions displayed by the store at confirmation control.</p>
+      </section>
 
-  <p>The app is provided "as is" without warranties of any kind, whether express
-  or implied. To the maximum extent permitted by law, the developer shall not be
-  liable for any indirect, incidental, or consequential damages arising from your
-  use of the app.</p>
+      <section class="legal-section">
+        <h2>6. Trial, renewal and cancellation</h2>
+        <p>Womb may offer 24 hours of introductory access in the app, without a purchase or automatic renewal. This access is separate from a subscription trial offered by the store.</p>
+        <p>Where offered, the 7-day free trial applies only to the annual subscription and is available only to eligible accounts under the store's rules. At the end of the trial, the annual subscription begins automatically at the price shown at confirmation unless cancelled before the trial ends.</p>
+        <p>Monthly and annual subscriptions renew automatically until cancelled. Payment, renewal, cancellation and refunds are handled by the store. You can manage the subscription in your Apple or Google account settings. Deleting Womb or a Womb account does not cancel the store subscription.</p>
+        <p>Womb's trial reminder is a courtesy. Delivery depends on device permissions and operation. You remain responsible for the date shown by the store.</p>
+        <p>Any statutory withdrawal and refund rights remain available. They are exercised through the procedures of the store that processed the payment.</p>
+      </section>
 
-  <h2>7. Changes to these terms</h2>
+      <section class="legal-section">
+        <h2>7. Lifetime launch access</h2>
+        <p>A promotional offer may grant lifetime Womb Premium to the first 100 accounts that activate a valid code. It is limited to one activation per account, has no cash value, may not be resold and is not transferable outside Womb's family mechanisms.</p>
+        <p>A Womb account is required to keep this access after reinstalling or changing devices. Consent to session recording is separate from promotional access. Refusing or withdrawing that consent does not remove lifetime access.</p>
+        <p>We may refuse or revoke an activation obtained through fraud, automation, circumvention of the limit or a serious breach of these terms.</p>
+      </section>
 
-  <p>We may update these terms from time to time. If we make significant changes,
-  we will notify you through the app or on this page. Continued use of the app
-  after changes constitutes acceptance of the updated terms.</p>
+      <section class="legal-section">
+        <h2>8. Permitted use</h2>
+        <p>Womb grants you a personal, limited, non-exclusive and non-transferable right to use the app for private and family purposes. You must not:</p>
+        <ul>
+          <li>use Womb unlawfully, deceptively or in a way that infringes another person's rights;</li>
+          <li>access another family's data without permission or share an invitation with an illegitimate person;</li>
+          <li>disrupt, overload, abusively test or bypass security, usage limits, subscriptions or access controls;</li>
+          <li>copy, sell, redistribute or commercially exploit the app or its content;</li>
+          <li>disassemble or reverse engineer the app except where expressly allowed by law.</li>
+        </ul>
+      </section>
 
-  <h2>8. Governing law</h2>
+      <section class="legal-section">
+        <h2>9. Your content and intellectual property</h2>
+        <p>You keep your rights in the information you enter. You give Womb limited permission to host, process, sync and disclose it to people you invite, solely to provide the service.</p>
+        <p>The app, its code, visual identity, text, illustrations and content are protected by the intellectual property rights of the developer or her licensors. No other right is transferred to you.</p>
+      </section>
 
-  <p>These terms are governed by the laws of France, without regard to conflict
-  of law provisions.</p>
+      <section class="legal-section">
+        <h2>10. Third-party services and availability</h2>
+        <p>Womb relies on the store, RevenueCat, Supabase, PostHog, Cloudflare, OpenAI and operating system services. Their own terms may apply. An outage, unavailable connection or third-party change may affect purchases, sync, sharing, voice entry or analytics, but local recording and viewing are designed to work offline.</p>
+        <p>We use reasonable efforts to keep Womb reliable and secure, without guaranteeing uninterrupted availability, complete freedom from errors or compatibility with every device and system version.</p>
+      </section>
 
-  <h2>9. Contact</h2>
+      <section class="legal-section">
+        <h2>11. Suspension and deletion</h2>
+        <p>You may stop using Womb at any time. You may delete your account in Settings, subject to first transferring ownership of a shared family where necessary.</p>
+        <p>We may limit or suspend an account where there is a security risk, fraud, abuse or serious breach of these terms. Where circumstances allow, we will notify you and give you an opportunity to fix the issue.</p>
+      </section>
 
-  <p>If you have any questions about these terms, please contact us at:<br>
-  <a href="mailto:thewombapp.contact@gmail.com">thewombapp.contact@gmail.com</a></p>
+      <section class="legal-section">
+        <h2>12. Liability and statutory warranties</h2>
+        <p>Womb is provided with the reasonable care expected of a digital service. To the extent allowed by law, we are not liable for indirect loss, data loss caused by choosing not to use backup, a medical decision taken against professional advice, or an event outside our reasonable control.</p>
+        <p>Nothing in these terms limits mandatory consumer rights, statutory warranties or liability that cannot be excluded by law. Where our liability may legally be limited, it is limited to direct and foreseeable loss resulting from a proven breach.</p>
+      </section>
 
-  <div class="footer">
-    <p>WOMB - Baby Sleep Sounds<br>
-    Built by an independent developer, for tired parents.</p>
-  </div>
+      <section class="legal-section">
+        <h2>13. Store licence</h2>
+        <p>On Apple devices, Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard End User License Agreement</a> applies to the app unless a custom licence is published in the App Store. These terms govern Womb-specific features and services. If there is a conflict about the app licence, the applicable store licence controls.</p>
+      </section>
 
+      <section class="legal-section">
+        <h2>14. Changes, governing law and contact</h2>
+        <p>We may update these terms to reflect changes to Womb, our providers or the law. A material change will be notified appropriately. It will not retroactively reduce a paid right without a lawful basis.</p>
+        <p>These terms are governed by French law. If you are a consumer, you also keep the mandatory protections and access to courts provided by the law of your country of residence. If a problem arises, first contact <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a> so we can try to resolve it.</p>
+      </section>
+    </article>
+
+    <footer>
+      <p>Womb, un guide du sommeil de bébé conçu avec soin à Paris.</p>
+      <p><a href="privacy-policy.html">Politique de confidentialité / Privacy Policy</a></p>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const buttons = [...document.querySelectorAll('[data-language]')];
+      const copies = [...document.querySelectorAll('[data-copy]')];
+      const supported = ['fr', 'en'];
+
+      function setLanguage(language, updateHash = true) {
+        const selected = supported.includes(language) ? language : 'fr';
+        document.documentElement.lang = selected;
+        document.title = selected === 'fr'
+          ? 'Womb | Conditions d\'utilisation'
+          : 'Womb | Terms of Use';
+        copies.forEach((copy) => { copy.hidden = copy.dataset.copy !== selected; });
+        buttons.forEach((button) => {
+          button.setAttribute('aria-pressed', String(button.dataset.language === selected));
+        });
+        if (updateHash) history.replaceState(null, '', `#${selected}`);
+      }
+
+      const fromHash = window.location.hash.slice(1).toLowerCase();
+      const initial = fromHash === 'en' ? 'en' : 'fr';
+      buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+      setLanguage(initial, false);
+    })();
+  </script>
 </body>
 </html>
