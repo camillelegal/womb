@@ -195,7 +195,7 @@
       <section class="legal-section">
         <h2>1. Qui est responsable de vos données ?</h2>
         <p>Le responsable du traitement est <strong>Camille Le Gal</strong>, éditrice indépendante de Womb. Pour toute question ou demande relative à vos données, écrivez à <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>.</p>
-        <p><strong>Date d'entrée en vigueur :</strong> 15 septembre 2026.</p>
+        <p><strong>Date d'entrée en vigueur :</strong> 25 septembre 2026.</p>
       </section>
 
       <section class="legal-section">
@@ -215,13 +215,13 @@
         <h2>4. Dictée vocale</h2>
         <div class="notice"><p><strong>L'audio reste sur l'appareil.</strong> L'iPhone transforme votre voix en texte. Womb ne reçoit et ne conserve aucun enregistrement audio.</p></div>
         <p>Le texte est envoyé au service Womb hébergé par Cloudflare. Les phrases simples sont interprétées par des règles automatiques. Si la phrase est ambiguë, le texte peut être transmis à l'API OpenAI afin de proposer des événements structurés.</p>
-        <p>La requête peut contenir les prénoms des bébés du profil afin d'attribuer les événements au bon enfant, ou des alias temporaires si un prénom manque ou n'est pas unique. Aucun identifiant persistant de bébé ou de compte n'est envoyé au fournisseur d'analyse. Un identifiant d'installation est transmis au service Womb pour limiter les abus. Le texte dicté part tel quel : si vous prononcez un prénom, il figure dans ce texte. La requête peut aussi contenir l'âge du bébé en mois, le fuseau horaire, ainsi que les horaires et types d'un nombre limité d'événements récents nécessaires à l'interprétation. Ni Womb ni son serveur ne conservent le texte. Womb demande également à l'API de ne pas stocker la réponse comme état applicatif.</p>
+        <p>La requête peut contenir les prénoms des bébés du profil afin d'attribuer les événements au bon enfant, ou des alias temporaires si un prénom manque ou n'est pas unique. Aucun identifiant persistant de bébé ou de compte n'est envoyé au fournisseur d'analyse. Un identifiant d'installation est transmis au service Womb pour limiter les abus. Le texte dicté part tel quel : si vous prononcez un prénom, il figure dans ce texte. La requête peut aussi contenir l'âge du bébé en mois, le fuseau horaire, ainsi que les horaires et types d'un nombre limité d'événements récents nécessaires à l'interprétation. Ni Womb ni son serveur ne conservent le texte pendant cette analyse. Si vous choisissez de signaler une erreur depuis la dictée, la phrase, le résultat proposé et un code diagnostic sont envoyés à un espace de support privé chez Cloudflare pour corriger le problème. Aucun audio ni identifiant persistant de bébé ou de compte n'est joint. Ces signalements sont conservés 30 jours puis supprimés automatiquement lors du passage quotidien suivant (au maximum 24 heures supplémentaires). Womb demande également à l'API de ne pas stocker la réponse comme état applicatif.</p>
         <p>OpenAI n'utilise pas les données de l'API pour entraîner ses modèles sauf accord explicite du client de l'API. Des journaux de surveillance des abus peuvent contenir la requête et la réponse pendant une durée allant jusqu'à 30 jours, ou plus longtemps si la loi l'exige ou si cela est raisonnablement nécessaire pour protéger les services ou des tiers.</p>
       </section>
 
       <section class="legal-section">
         <h2>5. Mesure d'usage et diagnostics</h2>
-        <p>Womb utilise PostHog pour comprendre l'utilisation de l'application et corriger les erreurs. PostHog peut recevoir un identifiant pseudonyme, des informations techniques sur l'appareil et l'application, les écrans consultés, les fonctions utilisées, les étapes du parcours, des catégories d'erreur et des mesures agrégées de personnalisation. PostHog déduit également une localisation approximative de l’adresse IP, notamment la ville, le pays et des coordonnées géographiques approximatives, pour mesurer l’usage. Womb ne demande pas l’accès à la localisation GPS pour cette mesure. Le contenu des dictées, le prénom du bébé et les horaires exacts de ses événements ne sont pas envoyés à PostHog.</p>
+        <p>Womb utilise PostHog pour comprendre l'utilisation de l'application et corriger les erreurs. PostHog peut recevoir un identifiant pseudonyme, des informations techniques sur l'appareil et l'application, les écrans consultés, les fonctions utilisées, les étapes du parcours, des catégories d'erreur et des mesures agrégées de personnalisation. PostHog déduit également une localisation approximative de l'adresse IP, notamment la ville, le pays et des coordonnées géographiques approximatives, pour mesurer l'usage. Womb ne demande pas l'accès à la localisation GPS pour cette mesure. Le contenu des dictées, le prénom du bébé et les horaires exacts de ses événements ne sont pas envoyés à PostHog.</p>
         <p>Pour les personnes qui activent l'accès de lancement, l'enregistrement de session reste désactivé jusqu'à un consentement explicite. S'il est accepté, tous les textes et toutes les images sont masqués avant la capture. Les replays sont hébergés dans l'Union européenne, conservés au maximum 30 jours et peuvent être arrêtés sans perdre l'accès à vie.</p>
         <p>Après plusieurs jours d'utilisation, ces mêmes personnes peuvent choisir de répondre à un court sondage facultatif. Le choix rapide et le texte libre éventuel sont transmis à PostHog dans l'Union européenne uniquement pour améliorer Womb. L'application demande de ne saisir aucun prénom ni autre information personnelle. Ignorer ou fermer le sondage ne modifie pas l'accès à vie.</p>
       </section>
@@ -230,6 +230,9 @@
         <h2>6. Abonnements et accès de lancement</h2>
         <p>Les paiements sont traités par l'App Store ou, le cas échéant, Google Play. Womb ne reçoit pas vos coordonnées bancaires. RevenueCat reçoit un identifiant d'application ou de boutique, le produit choisi, l'état de l'abonnement et les identifiants de transaction nécessaires pour activer Womb Premium et restaurer les achats.</p>
         <p>Pour limiter l'offre de lancement aux 100 premiers comptes, le service Womb traite une version hachée de l'identifiant RevenueCat et l'état de l'activation. Le code de lancement n'est pas intégré à l'application.</p>
+        <h3>Attribution Apple Ads</h3>
+        <p>Sur iOS, Womb active l'attribution standard Apple AdServices. Le SDK RevenueCat transmet à RevenueCat un jeton fourni par Apple pour savoir si une installation provient d'une annonce Womb sur l'App Store. Apple peut fournir les identifiants de campagne, de groupe d'annonces et de mot-clé, le pays et le type d'attribution. RevenueCat rattache ces informations à son identifiant client, y compris sans compte Womb, afin de mesurer les essais et revenus associés aux acquisitions publicitaires. Une connexion ultérieure au compte Womb peut rapprocher cette identité des achats existants.</p>
+        <p>Ce traitement n'utilise pas l'identifiant publicitaire IDFA ni l'attribution détaillée soumise à l'autorisation de suivi Apple. Aucun prénom de bébé, événement de sommeil, donnée de santé ou texte dicté n'est transmis par cette intégration. RevenueCat ne renvoie pas les événements d'abonnement à Apple Ads. L'attribution est conservée avec les informations du client RevenueCat selon sa politique ; les demandes relatives à ces données peuvent être adressées au contact indiqué à la section 10.</p>
       </section>
 
       <section class="legal-section">
@@ -248,7 +251,7 @@
         <ul>
           <li><a href="https://supabase.com/privacy">Supabase</a>, authentification, base de données, sauvegarde et partage facultatifs.</li>
           <li><a href="https://posthog.com/privacy">PostHog</a>, mesure d'usage, diagnostics et replays consentis, avec hébergement européen configuré.</li>
-          <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>, gestion des droits d'abonnement.</li>
+          <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>, gestion des droits d'abonnement et attribution Apple Ads.</li>
           <li><a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>, hébergement et protection du service de dictée et d'activation.</li>
           <li><a href="https://openai.com/policies/privacy-policy/">OpenAI</a>, analyse de texte lorsque les règles locales ne suffisent pas.</li>
           <li><a href="https://www.apple.com/legal/privacy/">Apple</a> et, le cas échéant, <a href="https://policies.google.com/privacy">Google</a>, distribution, paiement, restauration et services du système.</li>
@@ -290,7 +293,7 @@
       <section class="legal-section">
         <h2>1. Who is responsible for your data?</h2>
         <p>The data controller is <strong>Camille Le Gal</strong>, Womb's independent developer. For any privacy question or request, email <a href="mailto:womb.app.contact@gmail.com">womb.app.contact@gmail.com</a>.</p>
-        <p><strong>Effective date:</strong> September 15, 2026.</p>
+        <p><strong>Effective date:</strong> September 25, 2026.</p>
       </section>
 
       <section class="legal-section">
@@ -325,6 +328,9 @@
         <h2>6. Subscriptions and launch access</h2>
         <p>Payments are handled by the App Store or, where applicable, Google Play. Womb does not receive your payment card details. RevenueCat receives an app or store identifier, the selected product, subscription status and transaction identifiers needed to unlock Womb Premium and restore purchases.</p>
         <p>To limit the launch offer to the first 100 accounts, Womb's service processes a hashed version of the RevenueCat identifier and the activation status. The launch code is not embedded in the app.</p>
+        <h3>Apple Ads attribution</h3>
+        <p>On iOS, Womb enables standard Apple AdServices attribution. The RevenueCat SDK sends RevenueCat a token provided by Apple to determine whether an installation came from a Womb advertisement on the App Store. Apple may return campaign, ad group and keyword identifiers, country and attribution type. RevenueCat links this information to its customer identifier, including when you have no Womb account, to measure trials and revenue associated with advertising acquisitions. Signing in to a Womb account later may link this identity with existing purchases.</p>
+        <p>This processing does not use the IDFA advertising identifier or detailed attribution requiring Apple's tracking permission. This integration sends no baby names, sleep events, health data or dictated text. RevenueCat does not send subscription events back to Apple Ads. Attribution is retained with RevenueCat customer information under its policy; requests about this data can be sent to the contact in section 10.</p>
       </section>
 
       <section class="legal-section">
@@ -343,7 +349,7 @@
         <ul>
           <li><a href="https://supabase.com/privacy">Supabase</a>, optional authentication, database, backup and sharing.</li>
           <li><a href="https://posthog.com/privacy">PostHog</a>, analytics, diagnostics and consented replays, configured with European hosting.</li>
-          <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>, subscription entitlement management.</li>
+          <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>, subscription entitlement management and Apple Ads attribution.</li>
           <li><a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>, hosting and protection of the voice and activation service.</li>
           <li><a href="https://openai.com/policies/privacy-policy/">OpenAI</a>, text analysis when local rules are not enough.</li>
           <li><a href="https://www.apple.com/legal/privacy/">Apple</a> and, where applicable, <a href="https://policies.google.com/privacy">Google</a>, for distribution, payment, restoration and operating system services.</li>
